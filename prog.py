@@ -15,10 +15,11 @@ class File():
         self.open_file.close()
 
 
-if os.stat("example.txt").st_size == 0:
-    for _ in range(10000):
+if __name__ == "__main__":
+    if os.stat("example.txt").st_size == 0:
+        for _ in range(1):
+            with File('example.txt', 'w') as infile:
+                infile.write('example')
+    else:
         with File('example.txt', 'w') as infile:
-            infile.write('example')
-else:
-    with File('example.txt', 'w') as infile:
-        infile.write('Error')
+            infile.write('Error')
